@@ -1,0 +1,23 @@
+:root {
+    --menu-width: 25px;
+    --menu-height: 21px;
+    --bar-height: 3px;
+    --timing-animation: .3s;
+}
+
+.container {}
+
+.menuIcon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: var(--menu-width);
+    height: var(--menu-height);
+}
+
+.menuIcon__bar {
+    position: absolute;
+    height: var(--bar-height);
+    width: var(--menu-width);
+    background-color: #000;
+}
