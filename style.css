@@ -5,7 +5,18 @@
     --timing-animation: .3s;
 }
 
-.container {}
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #2ed7d7;
+}
 
 .menuIcon {
     position: relative;
@@ -13,11 +24,55 @@
     align-items: center;
     width: var(--menu-width);
     height: var(--menu-height);
+    cursor: pointer;
 }
 
 .menuIcon__bar {
     position: absolute;
     height: var(--bar-height);
     width: var(--menu-width);
-    background-color: #000;
+    background-color: #eee;
+    transition: opacity 0s var(--timing-animation), top var(--timing-animation) var(--timing-animation), bottom var(--timing-animation) var(--timing-animation), transform var(--timing-animation);
+    -webkit-transition: opacity 0s var(--timing-animation), top var(--timing-animation) var(--timing-animation), bottom var(--timing-animation) var(--timing-animation), transform var(--timing-animation);
+    -moz-transition: opacity 0s var(--timing-animation), top var(--timing-animation) var(--timing-animation), bottom var(--timing-animation) var(--timing-animation), transform var(--timing-animation);
+    -ms-transition: opacity 0s var(--timing-animation), top var(--timing-animation) var(--timing-animation), bottom var(--timing-animation) var(--timing-animation), transform var(--timing-animation);
+    -o-transition: opacity 0s var(--timing-animation), top var(--timing-animation) var(--timing-animation), bottom var(--timing-animation) var(--timing-animation), transform var(--timing-animation);
+}
+
+.menuIcon__bar:nth-child(1) {
+    top: 0;
+}
+
+.menuIcon__bar:nth-child(3) {
+    bottom: 0;
+}
+
+.menuIcon--isActive .menuIcon__bar {
+    transition: opacity 0s var(--timing-animation), top var(--timing-animation), bottom var(--timing-animation), transform var(--timing-animation) var(--timing-animation);
+    -webkit-transition: opacity 0s var(--timing-animation), top var(--timing-animation), bottom var(--timing-animation), transform var(--timing-animation) var(--timing-animation);
+    -moz-transition: opacity 0s var(--timing-animation), top var(--timing-animation), bottom var(--timing-animation), transform var(--timing-animation) var(--timing-animation);
+    -ms-transition: opacity 0s var(--timing-animation), top var(--timing-animation), bottom var(--timing-animation), transform var(--timing-animation) var(--timing-animation);
+    -o-transition: opacity 0s var(--timing-animation), top var(--timing-animation), bottom var(--timing-animation), transform var(--timing-animation) var(--timing-animation);
+}
+
+.menuIcon--isActive .menuIcon__bar:nth-child(1) {
+    top: calc(50% - calc(var(--bar-height) / 2));
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+.menuIcon--isActive .menuIcon__bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menuIcon--isActive .menuIcon__bar:nth-child(3) {
+    bottom: calc(50% - calc(var(--bar-height) / 2));
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
 }
